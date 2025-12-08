@@ -28,6 +28,11 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
+        """
+        get_page is used to return the rows of the dataset which
+         are in the pagination_range. Returns an empty list if the range is
+         out of bounds.
+        """
         # Required to use assert
         assert isinstance(page, int)
         assert isinstance(page_size, int)
