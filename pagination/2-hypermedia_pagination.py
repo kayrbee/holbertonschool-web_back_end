@@ -59,7 +59,8 @@ class Server:
 
             d = {
                 'page_size': page_size,
-                'page': page, 'data': data,
+                'page': page,
+                'data': data,
                 'prev_page': prev_page,
                 'next_page': next_page,
                 'total_pages': total_pages
