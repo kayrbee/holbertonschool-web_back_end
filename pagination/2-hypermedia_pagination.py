@@ -43,7 +43,8 @@ class Server:
 
     def get_hyper(self, page: int = 1, page_size: int = 10) -> dict:
         """
-        get_hyper is used to return a dictionary of information about pagination
+        get_hyper is used to return a dictionary of information
+          about pagination
         """
         # Required to use assert
         assert isinstance(page, int)
@@ -51,13 +52,19 @@ class Server:
         assert page > 0 and page_size > 0
 
         try:
-            total_pages = math.ceil(len(self.__dataset) / page_size)
             data = self.get_page(page, page_size)
-            prev_page = page - 1 if page > 1 and data else None
+            total_pages = math.ceil(len(self.__dataset) / page_size)
+            prev_page = page - 1 if page > 1 else None
             next_page = page + 1 if page < total_pages and data else None
 
-            d = {'page_size': page_size, 'page': page, 'data': data,
-                 'prev_page': prev_page, 'next_page': next_page, 'total_pages': total_pages}
+            d = {
+                'page_size': page_size,
+                'page': page, 'data': data,
+                'prev_page': prev_page,
+                'next_page': next_page,
+                'total_pages': total_pages
+            }
+
             return d
         except ValueError as e:
             print(f'Invalid pagination parameters: {e}')
