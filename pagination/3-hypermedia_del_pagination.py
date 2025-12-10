@@ -51,17 +51,14 @@ class Server:
             raise AssertionError
 
         data = []
+        current_index = index
 
-        offset = 0
-        for i in range(page_size):
-            reference = index + i
-            if reference in dataset:
-                data.append(dataset[reference + offset])
-            else:
-                offset += 1
-                data.append(dataset[reference + offset])
+        while len(data) < page_size and current_index < len(dataset):
+            if current_index in dataset:
+                data.append(dataset[current_index])
+            current_index += 1
 
-        next_index = index + page_size + offset
+        next_index = current_index
 
         d = {
             'index': index,
