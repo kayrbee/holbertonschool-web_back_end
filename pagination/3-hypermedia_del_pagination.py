@@ -40,6 +40,8 @@ class Server:
         return self.__indexed_dataset
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
+        """Handle data deletions from an indexed dictionary
+        """
         assert isinstance(index, int)
         if index is not None:
             assert index >= 0
