@@ -53,36 +53,14 @@ class Server:
         try:
             total_pages = math.ceil(len(self.__dataset) / page_size)
             data = self.get_page(page, page_size)
-            prev_page = page - 1 if page > 1 else None
-            next_page = page + 1 if page < total_pages else None
+            prev_page = page - 1 if page > 1 and data else None
+            next_page = page + 1 if page < total_pages and data else None
 
             d = {'page_size': page_size, 'page': page, 'data': data,
                  'prev_page': prev_page, 'next_page': next_page, 'total_pages': total_pages}
             return d
-            # d = {'page_size': page_size, 'page': page}
-
-            # # data = self.get_page(page, page_size)
-            # d['data'] = self.get_page(page, page_size)
-            # total_pages = math.ceil(len(self.__dataset) / page_size)
-
-            # if page == 1:
-            #     prev_page = None
-            # else:
-            #     prev_page = page - 1
-
-            # d['prev_page'] = prev_page
-
-            # if page >= total_pages:
-            #     next_page = None
-            # else:
-            #     next_page = page + 1
-
-            # d['next_page'] = next_page
-            # d['total_pages'] = total_pages
-            # return d
-        except Exception as e:
-            print(f'{e}')
-            return {}
+        except ValueError as e:
+            print(f'Invalid pagination parameters: {e}')
 
 
 def index_range(page: int, page_size: int):
