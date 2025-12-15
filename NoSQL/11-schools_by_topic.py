@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
-""" Write a Python function that changes all topics of a
- school document based on the name"""
+""" Write a Python function that returns
+the list of schools having a specific topic"""
 
 
-def update_topics(mongo_collection, name, topics):
+def schools_by_topic(mongo_collection, topic):
     """ Now it's documented"""
-    search = {"name": name}
-    new_values = {"$set": {"topics": topics}}
-    school_id = mongo_collection.update(search, new_values, {"multi": True})
-    return school_id
+    search = {"topics": topic}
+    schools = mongo_collection.find(search)
+    return schools
