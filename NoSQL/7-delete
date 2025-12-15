@@ -1,2 +1,2 @@
 // Delete doc in collection - nb deprecated method bc checker is old
-db.school.remove({name: "Holberton school"})
+db.school.deleteMany({ name: "Holberton school" })
