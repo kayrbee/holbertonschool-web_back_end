@@ -3,5 +3,6 @@
 
 
 def list_all(mongo_collection):
+    """ Now it's documented"""
     data = mongo_collection.find()
     return data if data else []
