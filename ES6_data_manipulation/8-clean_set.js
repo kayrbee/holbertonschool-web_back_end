@@ -7,11 +7,13 @@ export default function cleanSet(set, startString) {
     }
 
     for (let item of set) {
+        // Don't include items which don't start with startString
         if (!(item.startsWith(startString))) {
             continue;
         }
         let startingIndex = startString.length;
         let delim = "-";
+        // Print a delimiter between items
         if (i != 0) {
             result += delim;
         }
