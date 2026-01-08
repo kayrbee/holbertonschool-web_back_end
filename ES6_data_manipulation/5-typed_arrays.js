@@ -8,13 +8,5 @@ export default function createInt8TypedArray(length, position, value) {
 
     int8arr[position] = value;
 
-    let result = {
-        Dataview: {
-            byteLength: buffer.byteLength,
-            byteOffset: buffer.byteOffset,
-            buffer: buffer
-        }
-    }
-
-    return result;
+    return new DataView(buffer);
 }
