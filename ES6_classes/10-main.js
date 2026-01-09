@@ -9,6 +9,6 @@ console.log(tc1);
 console.log(tc1 instanceof TestCar);
 
 console.log(tc2);
-console.log(tc2 instanceof TestCar);
+console.log("clone is instance of Parent: ", tc2 instanceof TestCar);
 
-console.log(tc1 == tc2);
+console.log("clone equals Parent: ", tc1 == tc2);
