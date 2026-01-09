@@ -13,12 +13,12 @@ export default class Car {
         this._brand = brand;
     }
 
-    get model() {
-        this._model;
+    get motor() {
+        this._motor;
     }
 
-    set model(model) {
-        this._model = model;
+    set motor(motor) {
+        this._motor = motor;
     }
 
     get color() {
