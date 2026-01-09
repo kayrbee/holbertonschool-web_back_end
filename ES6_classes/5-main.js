@@ -11,7 +11,7 @@ class TestBuilding extends Building {
 
 try {
     let testBld = new TestBuilding(200)
-    console.log(testBld, testBld.evacuationWarningMessage());
+    // console.log(testBld, testBld.evacuationWarningMessage());
 }
 catch(err) {
     console.log(err);
