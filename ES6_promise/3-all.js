@@ -10,10 +10,10 @@ export default function handleProfileSignup() {
             console.log(`${responseBody} ${createUserResponse.firstName} ${createUserResponse.lastName}`);
         })
         .catch(function() {
-            return new Error();
+            console.log("Signup system offline");
         })
     })
     .catch(function() {
-        return new Error();
+        console.log("Signup system offline");
     });
 }
