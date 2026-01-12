@@ -7,7 +7,7 @@ export default function handleProfileSignup() {
         const responseBody = uploadPhotoResponse.body;
         return createUser()
         .then(function(createUserResponse) {
-            console.log(responseBody, createUserResponse.firstName, createUserResponse.lastName);
+            console.log(`${responseBody} ${createUserResponse.firstName} ${createUserResponse.lastName}`);
         })
         .catch(function() {
             return new Error();
