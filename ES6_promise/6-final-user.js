@@ -10,8 +10,8 @@ export default function handleProfileSignup(firstName, lastName, filename) {
   return Promise.all(
     promises.map(p =>
       p.then(
-        value => ({ status: 'fulfilled', value }),
-        reason => ({ status: 'rejected', reason: reason.message })
+        value => ({ status: 'fulfilled', value: value }),
+        reason => ({ status: 'rejected', value: reason.message })
       )
     )
   );
