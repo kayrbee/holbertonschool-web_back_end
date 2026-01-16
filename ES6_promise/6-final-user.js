@@ -5,7 +5,7 @@ export default async function handleProfileSignup(firstName, lastName, filename)
     const userPromise = signUpUser(firstName, lastName);
     const photoPromise = uploadPhoto(filename);
 
-    Promise.all([userPromise, photoPromise]
+    return Promise.all([userPromise, photoPromise]
     .map(p => p.catch(e => e)))
     .then(function(values) {
         let result = [];
@@ -22,7 +22,6 @@ export default async function handleProfileSignup(firstName, lastName, filename)
             }
             result.push(r);
         }
-        // console.log(result);
         return result;
     })
 }
