@@ -10,13 +10,15 @@ export default async function handleProfileSignup(firstName, lastName, filename)
     .then(function(values) {
         let result = [];
         for (let v of values) {
-            let status = 'fulfilled';
-            if (String(v).includes("Error")) {
-                status = 'rejected';
-            }
             let r = {
-                status: status,
+                status: 'fulfilled',
                 value: v
+            };
+            if (String(v).includes("Error")) {
+                r = {
+                    status: 'rejected',
+                    value: v.message
+                }
             }
             result.push(r);
         }
