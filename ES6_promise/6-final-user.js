@@ -11,8 +11,15 @@ export default function handleProfileSignup(firstName, lastName, filename) {
     promises.map(p =>
       p.then(
         value => ({ status: 'fulfilled', value: value }),
-        reason => ({ status: 'rejected', value: reason.message })
+        function ifRejected(reason) {
+            // console.log(reason.message);
+            let r = { 
+                status: 'rejected',
+                value: `Error: ${reason.message}`
+            }
+            return r;
+        }
+        )
       )
     )
-  );
 }
