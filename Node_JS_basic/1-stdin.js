@@ -1,14 +1,14 @@
 const readline = require('node:readline');
 
 const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-})
+  input: process.stdin,
+  output: process.stdout,
+});
 
-rl.question(`Welcome to Holberton School, what is your name?\n`, name => {
-    process.stdout.write(`Your name is: ${name}\r`);
-    rl.close();
-})
+rl.question('Welcome to Holberton School, what is your name?\n', (name) => {
+  process.stdout.write(`Your name is: ${name}\r`);
+  rl.close();
+});
 
 // Handle application exit
 rl.on('close', () => {
